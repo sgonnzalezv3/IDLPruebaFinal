@@ -1,0 +1,89 @@
+﻿@model List<IDLPrueba.Models.Pais>
+@{
+    ViewData["Title"] = "Lista de Paises";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    @if (TempData["mensaje"] != null)
+    {
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            @TempData["mensaje"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+    <div class="col-sm-12">
+        <h3 class="text-center">Lista de Paises</h3>
+    </div>
+    <div class="col-sm-12 text-center">
+        <a class="btn btn-success mb-3" asp-action="Create" asp-controller="Paises">Agregar Pais</a>
+    </div>
+
+    <form asp-action="Index" method="get" class="mb-3">
+        <div class="form-actions no-color">
+            <input type="text" name="search" value="@ViewData["Filtrar"]" placeholder="Busca por nombre" />
+            <input type="submit" value="Buscar" class="btn btn-info" />
+            <a asp-action="Index" class="btn btn-info">Todos los registros</a>
+        </div>
+    </form>
+
+    <div class="row justify-content-center">
+        @if (Model.Count() > 0)
+        {
+            <table class="table table-bordered table-striped text-center">
+                <thead>
+                    <tr>
+                        <td>Identificación</td>
+                        <td>Nombre</td>
+                        <td>Descripcion</td>
+                        <td>Activo</td>
+                        <td>Departamentos del pais</td>
+                        <td>Acciones</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var pais in Model)
+                    {
+                    <tr>
+                        <td>@pais.PaisId</td>
+                        <td>@pais.PaisNombre</td>
+                        <td>@pais.PaisDescripcion</td>
+                        <td>@pais.Activo</td>
+                        <td>
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Departamentos
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    @if (pais.Departamentos.Any())
+                                    {
+                                        foreach (var dep in pais.Departamentos)
+                                        {
+                                            <a class="dropdown-item">@dep.DepartamentoNombre</a>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <a class="dropdown-item">Sin departamentos</a>
+                                    }
+
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <a asp-controller="Paises" asp-action="Edit" asp-route-id="@pais.PaisId" class="btn btn-warning">Editar</a>
+                            <a asp-controller="Paises" asp-action="Delete" asp-route-id="@pais.PaisId" class="btn btn-danger">Eliminar</a>
+
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p class="mt-5">Aún no existen registros</p>
+        }
+    </div>
+</div>

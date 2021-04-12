@@ -1,0 +1,408 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IDLPrueba</name>
+    </assembly>
+    <members>
+        <member name="T:IDLPrueba.Controllers.CiudadesController">
+            <summary>
+            Responde a eventos y realiaza peticiones de todo lo que respecta a la clase Ciudad
+            </summary>
+        </member>
+        <member name="F:IDLPrueba.Controllers.CiudadesController._context">
+            <value> propiedad de la clase encargada de hacer llamado a la base de datos por medio del AppDbContext </value>
+        </member>
+        <member name="M:IDLPrueba.Controllers.CiudadesController.#ctor(IDLPrueba.Persistencia.AppDbContext)">
+            <summary>
+            Constructor donde se obtiene la base de datos por medio de inyección de dependencias
+            </summary>
+            <param name="context"> Corresponde al llamado a la clase que interactua con la base de datos </param>
+            
+        </member>
+        <member name="M:IDLPrueba.Controllers.CiudadesController.Index(System.String)">
+            <summary>
+            Método encargado de obtener la lista de ciudades de la base de datos y pasarlas a la vista para que esta las pueda ilustrar
+            </summary>
+            <param name="search"> Representa el texto con el cual se va a flitrar la busqueda de las ciudades en la caja de busqueda.</param>
+            <returns>Vista Index con la data de ciudades</returns>
+        </member>
+        <member name="M:IDLPrueba.Controllers.CiudadesController.Create">
+            <summary>
+            Mátodo encargado de direccionar a la vista Create, en donde se llena la información para crear una nueva Ciudad
+            </summary>
+            <returns>Vista Create, la cual es un formulario para crear una nueva ciudad </returns>
+        </member>
+        <member name="M:IDLPrueba.Controllers.CiudadesController.Create(IDLPrueba.Models.Ciudad)">
+            <summary>
+            Método que se encarga de almacenar la ciudad ingresada en la base de datos. 
+            </summary>
+            <param name="ciudad"> data de la ciudad que sera almacenada en la base de datos </param>
+            <returns></returns>
+        </member>
+        <member name="M:IDLPrueba.Controllers.CiudadesController.Delete(System.Nullable{System.Int32})">
+            <summary>
+            metodo encargado de ilustrar la vista con la información de la ciudad que se va eliminar dada Id
+            </summary>
+            <param name="id">Representa el id de la ciudad que se va eliminar</param>
+            <returns> vista la cual tendrá como parametro la ciudad que se va eliminar</returns>
+        </member>
+        <member name="M:IDLPrueba.Controllers.CiudadesController.DeleteCiudad(System.Nullable{System.Int32})">
+            <summary>
+            Método encargado de comunicar a la base de datos la eliminación de la ciudad
+            </summary>
+            <param name="CiudadId">representa el Id de la ciudad, el cual sera de referencia para la eliminación</param>
+            <returns>Regresa a la vista Index, con un mensaje de satisfacción</returns>
+        </member>
+        <member name="M:IDLPrueba.Controllers.CiudadesController.Edit(IDLPrueba.Models.Ciudad)">
+            <summary>
+            Método que dirige a la vista de editar una ciudad, permitiendo alterar la información de una ciudad existente
+            </summary>
+            <param name="ciudad"> representa la ciudad la cual se va a editar </param>
+            <returns> retorna a la vista principal, con un mensaje de satisfacción</returns>
+        </member>
+        <member name="M:IDLPrueba.Controllers.CiudadesController.Edit(System.Nullable{System.Int32})">
+            <summary>
+            Metodo que comunica a la base de datos, con el fin de actualizar la nueva información de la ciudad
+            </summary>
+            <param name="id"> hace referencia al id de la ciudad que se ha actualizado </param>
+            <returns></returns>
+        </member>
+        <member name="T:IDLPrueba.Controllers.DepartamentosController">
+            <summary>
+            Responde a eventos y realiaza peticiones de todo lo que respecta a la clase Departamento
+            </summary>
+        </member>
+        <member name="F:IDLPrueba.Controllers.DepartamentosController._context">
+            <value> propiedad de la clase encargada de hacer llamado a la base de datos por medio del AppDbContext </value>
+        </member>
+        <member name="M:IDLPrueba.Controllers.DepartamentosController.#ctor(IDLPrueba.Persistencia.AppDbContext)">
+            <summary>
+            Constructor donde se obtiene la base de datos por medio de inyección de dependencias
+            </summary>
+            <param name="context"> Corresponde al llamado a la clase que interactua con la base de datos </param>
+            
+        </member>
+        <member name="M:IDLPrueba.Controllers.DepartamentosController.Index(System.String)">
+            <summary>
+            Método encargado de obtener la lista de departamentos de la base de datos y pasarlas a la vista para que esta las pueda ilustrar
+            </summary>
+            <param name="search"> Representa el texto con el cual se va a flitrar la busqueda de los departamentos en la caja de busqueda.</param>
+            <returns>Vista Index con la data de departamentos</returns>
+        </member>
+        <member name="M:IDLPrueba.Controllers.DepartamentosController.Create">
+            <summary>
+            Mátodo encargado de direccionar a la vista Create, en donde se llena la información para crear un nuevo departamento
+            </summary>
+            <returns>Vista Create, la cual es un formulario para crear un nuevo departamento </returns>
+        </member>
+        <member name="M:IDLPrueba.Controllers.DepartamentosController.Create(IDLPrueba.Models.Departamento)">
+            <summary>
+            Método que se encarga de almacenar el departamento ingresado en la base de datos. 
+            </summary>
+            <param name="departamento">data del departamento que sera almacenada en la base datos</param>
+            <returns>retorna la vista principal con mensaje notificando la acción exitosa </returns>
+            
+        </member>
+        <member name="M:IDLPrueba.Controllers.DepartamentosController.Edit(System.Nullable{System.Int32})">
+            <summary>
+            metodo encargado de ilustrar la vista con la información de el departamento que se va a actualizar dada Id
+            </summary>
+            <param name="id">Representa el id de el departamento que se va a actualizar</param>
+            <returns> vista la cual tendrá como parametro el departamento que se va actualizar</returns>
+        </member>
+        <member name="M:IDLPrueba.Controllers.DepartamentosController.Edit(IDLPrueba.Models.Departamento)">
+            <summary>
+            Método que dirige a la vista de editar un departamento, permitiendo alterar la información de un departamento existente
+            </summary>
+            <param name="departamento"> representa el departamento el cual se va a editar </param>
+            <returns> retorna a la vista principal, con un mensaje de satisfacción</returns>
+        </member>
+        <member name="M:IDLPrueba.Controllers.DepartamentosController.Delete(System.Nullable{System.Int32})">
+            <summary>
+            metodo encargado de ilustrar la vista con la información de el departamento que se va eliminar dada Id
+            </summary>
+            <param name="id">Representa el id de el departamento que se va eliminar</param>
+            <returns> vista la cual tendrá como parametro el departamento que se va eliminar</returns>
+        </member>
+        <member name="M:IDLPrueba.Controllers.DepartamentosController.DeleteDep(System.Nullable{System.Int32})">
+            <summary>
+            Método encargado de comunicar a la base de datos la eliminación de un departamento
+            </summary>
+            <param name="DepartamentoId">representa el Id de el departamento, el cual sera de referencia para la eliminación</param>
+            <returns>Regresa a la vista Index, con un mensaje de satisfacción</returns>
+        </member>
+        <member name="T:IDLPrueba.Controllers.HomeController">
+            <summary>
+            Clase Home encargada de proveer los controllers 
+            </summary>
+        </member>
+        <member name="T:IDLPrueba.Controllers.PaisesController">
+            <summary>
+            Responde a eventos y realiaza peticiones de todo lo que respecta a la clase Pais
+            </summary>
+        </member>
+        <member name="F:IDLPrueba.Controllers.PaisesController._context">
+            <value> propiedad de la clase encargada de hacer llamado a la base de datos por medio del AppDbContext </value>
+        </member>
+        <member name="M:IDLPrueba.Controllers.PaisesController.#ctor(IDLPrueba.Persistencia.AppDbContext)">
+            <summary>
+            Constructor donde se obtiene la base de datos por medio de inyección de dependencias
+            </summary>
+            <param name="context"> Corresponde al llamado a la clase que interactua con la base de datos </param>
+            
+        </member>
+        <member name="M:IDLPrueba.Controllers.PaisesController.Index(System.String)">
+            <summary>
+            Método encargado de obtener la lista de paises de la base de datos y pasarlas a la vista para que esta las pueda ilustrar
+            </summary>
+            <param name="search"> Representa el texto con el cual se va a flitrar la busqueda de los paises en la caja de busqueda.</param>
+            <returns>Vista Index con la data de paises</returns>
+        </member>
+        <member name="M:IDLPrueba.Controllers.PaisesController.Create">
+            <summary>
+            Mátodo encargado de direccionar a la vista Create, en donde se llena la información para crear un nuevo pais
+            </summary>
+            <returns>Vista Create, la cual es un formulario para crear un nuevo pais </returns>
+        </member>
+        <member name="M:IDLPrueba.Controllers.PaisesController.Create(IDLPrueba.Models.Pais)">
+            <summary>
+            Método que se encarga de almacenar el pais ingresado en la base de datos. 
+            </summary>
+            <param name="pais">data del pais que sera almacenada en la base datos</param>
+            <returns>retorna la vista principal con mensaje notificando la acción exitosa </returns>
+            
+        </member>
+        <member name="M:IDLPrueba.Controllers.PaisesController.Edit(System.Nullable{System.Int32})">
+            <summary>
+            metodo encargado de ilustrar la vista con la información de el pais que se va a actualizar dada Id
+            </summary>
+            <param name="id">Representa el id de el pais que se va a actualizar</param>
+            <returns> vista la cual tendrá como parametro el pais que se va actualizar</returns>
+        </member>
+        <member name="M:IDLPrueba.Controllers.PaisesController.Edit(IDLPrueba.Models.Pais)">
+            <summary>
+            Método que dirige a la vista de editar un pais, permitiendo alterar la información de un pais existente
+            </summary>
+            <param name="pais"> representa el pais el cual se va a editar </param>
+            <returns> retorna a la vista principal, con un mensaje de satisfacción</returns>
+        </member>
+        <member name="M:IDLPrueba.Controllers.PaisesController.Delete(System.Nullable{System.Int32})">
+            <summary>
+            metodo encargado de ilustrar la vista con la información de el pais que se va eliminar dada Id
+            </summary>
+            <param name="id">Representa el id de el pais que se va eliminar</param>
+            <returns> vista la cual tendrá como parametro el pais que se va eliminar</returns>
+        </member>
+        <member name="M:IDLPrueba.Controllers.PaisesController.DeletePa(System.Nullable{System.Int32})">
+            <summary>
+            Método encargado de comunicar a la base de datos la eliminación de un pais
+            </summary>
+            <param name="paisId">representa el Id de el pais, el cual sera de referencia para la eliminación</param>
+            <returns>Regresa a la vista Index, con un mensaje de satisfacción</returns>
+        </member>
+        <member name="T:IDLPrueba.Models.Ciudad">
+            <summary>
+            Representa la ciudad
+            </summary>
+        </member>
+        <member name="T:IDLPrueba.Models.CiudadLogic.ConsultarCiudadLista">
+            <summary>
+            Servicio que permite realizar busqueda de las ciudades en la base de datos
+            </summary>
+        </member>
+        <member name="F:IDLPrueba.Models.CiudadLogic.ConsultarCiudadLista._context">
+            <value> atributo que realiza comunicación con la clase encargada de la base de datos </value>
+        </member>
+        <member name="M:IDLPrueba.Models.CiudadLogic.ConsultarCiudadLista.#ctor(IDLPrueba.Persistencia.AppDbContext)">
+            <summary>
+            Constructor encargado de asignar al context el valor el cual tiene la base de datos
+            </summary>
+            <param name="context"> contiene el acceso a la base de datos </param>
+        </member>
+        <member name="M:IDLPrueba.Models.CiudadLogic.ConsultarCiudadLista.ListaCiudades(System.String)">
+            <summary>
+            Metodo encargado de obtener la lista de ciudades 
+            </summary>
+            <param name="search">string el cual se va utilizar como filtro al momento de obtener la data</param>
+            <returns> lista de ciudades </returns>
+        </member>
+        <member name="T:IDLPrueba.Models.CiudadLogic.EditarCiudad">
+            <summary>
+            Clase encargada de acceder a la base de datos para obtener una ciudad que se va a actualiar
+            </summary>
+        </member>
+        <member name="F:IDLPrueba.Models.CiudadLogic.EditarCiudad._context">
+            <value> atributo que realiza comunicación con la clase encargada de la base de datos </value>
+        </member>
+        <member name="M:IDLPrueba.Models.CiudadLogic.EditarCiudad.#ctor(IDLPrueba.Persistencia.AppDbContext)">
+            <summary>
+            Constructor encargado de asignar al context el valor el cual tiene la base de datos
+            </summary>
+            <param name="context"> contiene el acceso a la base de datos </param>
+        </member>
+        <member name="M:IDLPrueba.Models.CiudadLogic.EditarCiudad.Edit(System.Nullable{System.Int32})">
+            <summary>
+            Metodo encargado de obtener la ciudad que se va actualizar 
+            </summary>
+            <param name="id">int con el cual se va a obtener la ciudad </param>
+            <returns> ciudad que se va actualizar </returns>
+        </member>
+        <member name="T:IDLPrueba.Models.CiudadLogic.EliminarCiudad">
+            <summary>
+            Clase encargada de acceder a la base de datos para obtener una ciudad que se va a eliminar
+            </summary>
+        </member>
+        <member name="F:IDLPrueba.Models.CiudadLogic.EliminarCiudad._context">
+            <value> atributo que realiza comunicación con la clase encargada de la base de datos </value>
+        </member>
+        <member name="M:IDLPrueba.Models.CiudadLogic.EliminarCiudad.#ctor(IDLPrueba.Persistencia.AppDbContext)">
+            <summary>
+            Constructor encargado de asignar al context el valor el cual tiene la base de datos
+            </summary>
+            <param name="context"> contiene el acceso a la base de datos </param>
+        </member>
+        <member name="M:IDLPrueba.Models.CiudadLogic.EliminarCiudad.Eliminar(System.Nullable{System.Int32})">
+            <summary>
+            Metodo encargado de obtener la ciudad que se va eliminar 
+            </summary>
+            <param name="id">int con el cual se va a obtener la ciudad </param>
+            <returns> ciudad que se va eliminar </returns>
+        </member>
+        <member name="T:IDLPrueba.Models.Departamento">
+            <summary>
+            Representa el departamento
+            </summary>
+        </member>
+        <member name="T:IDLPrueba.Models.DepartamentoLogic.ConsultarDepartamentoLista">
+            <summary>
+            Servicio que permite realizar busqueda de los departamentos en la base de datos
+            </summary>
+        </member>
+        <member name="F:IDLPrueba.Models.DepartamentoLogic.ConsultarDepartamentoLista._context">
+            <value> atributo que realiza comunicación con la clase encargada de la base de datos </value>
+        </member>
+        <member name="M:IDLPrueba.Models.DepartamentoLogic.ConsultarDepartamentoLista.#ctor(IDLPrueba.Persistencia.AppDbContext)">
+            <summary>
+            Constructor encargado de asignar al context el valor el cual tiene la base de datos
+            </summary>
+            <param name="context"> contiene el acceso a la base de datos </param>
+        </member>
+        <member name="M:IDLPrueba.Models.DepartamentoLogic.ConsultarDepartamentoLista.ListaCiudades(System.String)">
+            <summary>
+            Metodo encargado de obtener la lista de Departamentos 
+            </summary>
+            <param name="search">string el cual se va utilizar como filtro al momento de obtener la data</param>
+            <returns> lista de departamentos </returns>
+        </member>
+        <member name="T:IDLPrueba.Models.DepartamentoLogic.EditarDepartamento">
+            <summary>
+            Clase encargada de acceder a la base de datos para obtener un departamento que se va a actualiar
+            </summary>
+        </member>
+        <member name="F:IDLPrueba.Models.DepartamentoLogic.EditarDepartamento._context">
+            <value> atributo que realiza comunicación con la clase encargada de la base de datos </value>
+        </member>
+        <member name="M:IDLPrueba.Models.DepartamentoLogic.EditarDepartamento.#ctor(IDLPrueba.Persistencia.AppDbContext)">
+            <summary>
+            Constructor encargado de asignar al context el valor el cual tiene la base de datos
+            </summary>
+            <param name="context"> contiene el acceso a la base de datos </param>
+        </member>
+        <member name="M:IDLPrueba.Models.DepartamentoLogic.EditarDepartamento.Edit(System.Nullable{System.Int32})">
+            <summary>
+            Metodo encargado de obtener el departamento que se va actualizar 
+            </summary>
+            <param name="id">int con el cual se va a obtener el departamento </param>
+            <returns> departamento que se va actualizar </returns>
+        </member>
+        <member name="T:IDLPrueba.Models.DepartamentoLogic.EliminarDepartamento">
+            <summary>
+            Clase encargada de acceder a la base de datos para obtener una ciudad que se va a eliminar
+            </summary>
+        </member>
+        <member name="F:IDLPrueba.Models.DepartamentoLogic.EliminarDepartamento._context">
+            <value> atributo que realiza comunicación con la clase encargada de la base de datos </value>
+        </member>
+        <member name="M:IDLPrueba.Models.DepartamentoLogic.EliminarDepartamento.#ctor(IDLPrueba.Persistencia.AppDbContext)">
+            <summary>
+            Constructor encargado de asignar al context el valor el cual tiene la base de datos
+            </summary>
+            <param name="context"> contiene el acceso a la base de datos </param>
+        </member>
+        <member name="M:IDLPrueba.Models.DepartamentoLogic.EliminarDepartamento.Eliminar(System.Nullable{System.Int32})">
+            <summary>
+            Metodo encargado de obtener el departamento que se va eliminar 
+            </summary>
+            <param name="id">int con el cual se va a obtener el departamento </param>
+            <returns> departamento que se va eliminar </returns>
+        </member>
+        <member name="T:IDLPrueba.Models.Pais">
+            <summary>
+            Representa el pais
+            </summary>
+        </member>
+        <member name="T:IDLPrueba.Models.PaisLogic.ConsultarPaisLista">
+            <summary>
+            Servicio que permite realizar busqueda de los paises en la base de datos
+            </summary>
+        </member>
+        <member name="F:IDLPrueba.Models.PaisLogic.ConsultarPaisLista._context">
+            <value> atributo que realiza comunicación con la clase encargada de la base de datos </value>
+        </member>
+        <member name="M:IDLPrueba.Models.PaisLogic.ConsultarPaisLista.#ctor(IDLPrueba.Persistencia.AppDbContext)">
+            <summary>
+            Constructor encargado de asignar al context el valor el cual tiene la base de datos
+            </summary>
+            <param name="context"> contiene el acceso a la base de datos </param>
+        </member>
+        <member name="M:IDLPrueba.Models.PaisLogic.ConsultarPaisLista.ListaPaises(System.String)">
+            <summary>
+            Metodo encargado de obtener la lista de paises 
+            </summary>
+            <param name="search">string el cual se va utilizar como filtro al momento de obtener la data</param>
+            <returns> lista de paises </returns>
+        </member>
+        <member name="T:IDLPrueba.Models.PaisLogic.EditarPais">
+            <summary>
+            Clase encargada de acceder a la base de datos para obtener un pais que se va a actualiar
+            </summary>
+        </member>
+        <member name="F:IDLPrueba.Models.PaisLogic.EditarPais._context">
+            <value> atributo que realiza comunicación con la clase encargada de la base de datos </value>
+        </member>
+        <member name="M:IDLPrueba.Models.PaisLogic.EditarPais.#ctor(IDLPrueba.Persistencia.AppDbContext)">
+            <summary>
+            Constructor encargado de asignar al context el valor el cual tiene la base de datos
+            </summary>
+            <param name="context"> contiene el acceso a la base de datos </param>
+        </member>
+        <member name="M:IDLPrueba.Models.PaisLogic.EditarPais.Edit(System.Nullable{System.Int32})">
+            <summary>
+            Metodo encargado de obtener el pais que se va actualizar 
+            </summary>
+            <param name="id">int con el cual se va a obtener el pais </param>
+            <returns> pais que se va actualizar </returns>
+        </member>
+        <member name="T:IDLPrueba.Models.PaisLogic.EliminarPais">
+            <summary>
+            Clase encargada de acceder a la base de datos para obtener un pais que se va a eliminar
+            </summary>
+        </member>
+        <member name="F:IDLPrueba.Models.PaisLogic.EliminarPais._context">
+            <value> atributo que realiza comunicación con la clase encargada de la base de datos </value>
+        </member>
+        <member name="M:IDLPrueba.Models.PaisLogic.EliminarPais.#ctor(IDLPrueba.Persistencia.AppDbContext)">
+            <summary>
+            Constructor encargado de asignar al context el valor el cual tiene la base de datos
+            </summary>
+            <param name="context"> contiene el acceso a la base de datos </param>
+        </member>
+        <member name="M:IDLPrueba.Models.PaisLogic.EliminarPais.Eliminar(System.Nullable{System.Int32})">
+            <summary>
+            Metodo encargado de obtener el pais que se va eliminar 
+            </summary>
+            <param name="id">int con el cual se va a obtener el pais </param>
+            <returns> pais que se va eliminar </returns>
+        </member>
+    </members>
+</doc>

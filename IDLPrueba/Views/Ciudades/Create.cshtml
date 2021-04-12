@@ -1,0 +1,76 @@
+﻿@model IDLPrueba.Models.Ciudad
+@{
+    ViewData["Title"] = "Crear Una Nueva Ciudad";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="row  text-center">
+        <div class="col-sm-12">
+            <h3>Crear Nueva Ciudad</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <form method="post" asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="CiudadNombre" class="control-label"></label>
+                    <input asp-for="CiudadNombre" class="form-control" />
+                    <span asp-validation-for="CiudadNombre" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="CiudadDescripcion" class="control-label"></label>
+                    <input asp-for="CiudadDescripcion" class="form-control" />
+                    <span asp-validation-for="CiudadDescripcion" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DepartamentoId" class="control-label"></label>
+                    <select asp-for="DepartamentoId" class="form-control" aria-label="Default select example">
+                        @foreach (var dep in (List<Departamento>)ViewData["departamentos"])
+                        {
+                            <option value="@dep.DepartamentoId">@dep.DepartamentoNombre</option>
+                        }
+                    </select>
+                    <span asp-validation-for="DepartamentoId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Activo" class="control-label"></label>
+                    <select asp-for="Activo" class="form-control" aria-label="Default select example">
+                            <option value="1">Activo</option>
+                            <option value="0">Inactivo</option>
+                    </select>
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="FCreacion" class="control-label"></label>
+                    <input asp-for="FCreacion" class="form-control" />
+                    <span asp-validation-for="FCreacion" class="text-danger"></span>
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="FModificacion" class="control-label"></label>
+                    <input asp-for="FModificacion" class="form-control" />
+                    <span asp-validation-for="FModificacion" class="text-danger"></span>
+
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Usuario" class="control-label"></label>
+                    <input asp-for="Usuario" class="form-control" />
+                    <span asp-validation-for="Usuario" class="text-danger"></span>
+                </div>
+
+                <div class="form-group text-center">
+                    <input type="submit" value="Crear Ciudad" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
